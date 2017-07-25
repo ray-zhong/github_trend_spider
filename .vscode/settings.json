@@ -1,0 +1,5 @@
+{
+  "python.pythonPath": "d:/project/github_trend_spider/ENV/scripts/python.exe",
+  "python.linting.pylintEnabled": false,
+  "editor.tabSize": 4
+}
