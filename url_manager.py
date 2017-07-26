@@ -10,6 +10,7 @@ class UrlManager(object):
             self.new_urls.add(url)
 
     def add_new_urls(self, urls):
+        print('total: %d' % len(urls))
         if urls is None or len(urls) == 0:
             return
         for url in urls:

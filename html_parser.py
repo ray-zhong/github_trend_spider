@@ -6,7 +6,7 @@ class HtmlParser(object):
 
     def _get_new_urls(self, page_url, soup):
         new_urls = set()
-        links = soup.find('div', class_='col-md-3').find_all('a', href=re.compile(r'https://github.com/trending/\w*$'))
+        links = soup.find('div', class_='col-md-3').find_all('a', href=re.compile(r'https://github.com/trending/.*$'))
         for link in links:
             new_url = link['href']
             new_urls.add(new_url)
