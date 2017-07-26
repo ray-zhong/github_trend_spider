@@ -29,7 +29,7 @@ class SpiderMain(object):
                 print('parser')
                 self.outputer.collect_data(new_data)
 
-                if count == 10:
+                if count == 2:
                     break
 
                 count = count + 1
