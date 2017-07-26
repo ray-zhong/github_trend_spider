@@ -21,9 +21,12 @@ class SpiderMain(object):
                 print('craw %d : %s' % (count, new_url))
                 html_cont = self.downloader.download(new_url)
                 print('download')
-                new_urls, new_data = self.parser.parse(new_url, html_cont)
+                if count == 1:
+                    new_urls, new_data = self.parser.parse_first(new_url, html_cont)
+                    self.urls.add_new_urls(new_urls)
+                else:
+                    new_data = self.parser.parse(new_url, html_cont)
                 print('parser')
-                self.urls.add_new_urls(new_urls)
                 self.outputer.collect_data(new_data)
 
                 if count == 10:
