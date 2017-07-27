@@ -1,3 +1,4 @@
 # 忽略 __pycache__/ 文件夹下的所有文件
 __pycache__/
 output.html
+test.py
