@@ -15,7 +15,10 @@ class HtmlParser(object):
     def _get_new_data(self, page_url, soup):
         res_data = {}
         repos = []
-        res_data['url'] = page_url
+        lang = page_url[page_url.rindex("/")+1:]
+        if lang == 'trending':
+            lang = 'all'
+        res_data['lang'] = lang
         repo_nodes = soup.find('ol', class_='repo-list').find_all('li')
         for repo_node in repo_nodes:
             repos_data = {}

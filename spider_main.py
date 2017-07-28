@@ -53,6 +53,6 @@ if __name__ == '__main__':
     root_url = 'https://github.com/trending'
     spider = SpiderMain(root_url)
     spider.work()
-    spider.outputer.output_html()
+    spider.outputer.save_data()
     end = time.time()
     print("cost time: %s" % (end-start))
