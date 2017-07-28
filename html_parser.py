@@ -6,7 +6,7 @@ class HtmlParser(object):
 
     def _get_new_urls(self, page_url, soup):
         new_urls = set()
-        links = soup.find('div', class_='col-md-3').find_all('a', href=re.compile(r'https://github.com/trending/.*$'))
+        links = soup.find('div', class_='col-md-3').find_all('a', href=re.compile(r'https://github.com/trending/.+$'))
         for link in links:
             new_url = link['href']
             new_urls.add(new_url)
@@ -32,7 +32,8 @@ class HtmlParser(object):
             else:
                 repos_data['language'] = 'Unknown'
                 repos_data['color'] = '#fff'
-            repos_data['stars'] = bottom_node[0].a.get_text(strip=True)
+            if bottom_node[0].a is not None:
+                repos_data['stars'] = bottom_node[0].a.get_text(strip=True)
             if bottom_node[0].find('span', class_='float-sm-right') is not None:
                 repos_data['stars_today'] = bottom_node[0].find('span', class_='float-sm-right').get_text(strip=True)
             repos.append(repos_data)
