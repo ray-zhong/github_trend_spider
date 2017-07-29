@@ -15,5 +15,6 @@ class HtmlOutputer(object):
 
     def save_data(self):
         db = conn.gittrend
+        db.col.remove()
         for data in self.datas:
             db.col.insert(data)
